@@ -6,19 +6,16 @@ namespace WebApp.Controllers
 {
     public class HelloWorldController : Controller
     {
-/*        public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
-        }*/
-
-        public string Index()
-        {
-            return ("Hello");
         }
 
-        public string Welcome(string name, int ID = 1)
+        public IActionResult Welcome(string name, int numTimes = 1)
         {
-            return HtmlEncoder.Default.Encode($"Hello {name}, num is {ID}");
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+            return View();
         }
 
     }
